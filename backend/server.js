@@ -45,8 +45,8 @@ app.get('/api/client/:id', async (req, res) => {
 //3.ADD NEW CLIENT (Use this to add your 40 users)
 app.post('/api/clients/add', async (req, res) => {
   try {
-    const { name, phone, location, footerColor } = req.body;
-    const newClient = new Client({ name, phone, location, footerColor });
+    const { name, phone, location, address, footerColor } = req.body;
+    const newClient = new Client({ name, phone, address, location, footerColor });
     const savedClient = await newClient.save();
     res.status(201).json(savedClient);
   } catch (err) {
