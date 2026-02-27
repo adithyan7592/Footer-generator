@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     // Fetch all 40+ clients from your backend
-    axios.get('http://localhost:5000/api/clients')
+    axios.get('https://footer-generator.onrender.com/api/clients')
       .then(res => {
         setClients(res.data);
         if (res.data.length > 0) {
@@ -22,7 +22,9 @@ function App() {
   if (clients.length === 0) return <div className="container">Loading Clients from Atlas...</div>;
 
   return (
+    
     <div className="container">
+      
       <h1>Footer Generator</h1>
       
       <div className="selector-box">
