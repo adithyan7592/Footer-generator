@@ -8,7 +8,9 @@ const Client = require('./models/client');
 const app = express();
 
 //  MIDDLEWARE 
-app.use(cors());
+app.use(cors({
+  origin: 'https://footer-generator-1.onrender.com' 
+}));
 app.use(express.json());
 
 //  MONGODB CONNECTION 
