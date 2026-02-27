@@ -10,8 +10,6 @@ const app = express();
 //  MIDDLEWARE 
 app.use(cors({
   origin: 'https://footer-generator-1.onrender.com',
-  methods: ['GET', 'POST'],
-  credentials: true
 }));
 app.use(express.json());
 
