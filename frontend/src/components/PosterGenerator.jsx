@@ -27,13 +27,13 @@ const PosterGenerator = ({ client }) => {
       // 2. Draw the User's Photo
       ctx.drawImage(img, 0, 0);
 
-      // 3. Draw Footer Bar (Slightly taller for two lines of text: 15% height)
+      // 3. Draw Footer Bar
       const footerHeight = canvas.height * 0.15;
       ctx.fillStyle = client.footerColor || "rgba(0,0,0,0.8)"; 
       ctx.fillRect(0, canvas.height - footerHeight, canvas.width, footerHeight);
 
       // 4. Add Client Details from MongoDB
-      ctx.fillStyle = "white";
+      ctx.fillStyle = "black";
       ctx.textAlign = "center";
       
       // Line 1: Shop Name & Location
@@ -42,7 +42,6 @@ const PosterGenerator = ({ client }) => {
       ctx.fillText(line1, canvas.width / 2, canvas.height - (footerHeight * 0.6));
 
       // Line 2: Full Address & Phone
-      // We use a slightly smaller font for the detailed address
       ctx.font = `${canvas.width * 0.028}px Arial`; 
       const line2 = `${client.address} | Ph: ${client.phone}`;
       ctx.fillText(line2, canvas.width / 2, canvas.height - (footerHeight * 0.25));
