@@ -8,7 +8,7 @@ const Client = require('./models/client');
 const app = express();
 
 //  MIDDLEWARE 
-app.use(cors()); //Allows Vite (5173) to talk to Express (5000)
+app.use(cors());
 app.use(express.json());
 
 //  MONGODB CONNECTION 
@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 //API ROUTES 
 
-//1.GET ALL CLIENTS (To see the list and copy IDs)
+//1.GET ALL CLIENTS
 app.get('/api/clients', async (req, res) => {
   try {
     const clients = await Client.find();
@@ -31,7 +31,7 @@ app.get('/api/clients', async (req, res) => {
   }
 });
 
-//2.GET SINGLE CLIENT (Used by Frontend App.jsx)
+//2.GET SINGLE CLIENT
 app.get('/api/client/:id', async (req, res) => {
   try {
     const client = await Client.findById(req.params.id);
@@ -42,11 +42,11 @@ app.get('/api/client/:id', async (req, res) => {
   }
 });
 
-//3.ADD NEW CLIENT (Use this to add your 40 users)
+//3.ADD NEW CLIENT 
 app.post('/api/clients/add', async (req, res) => {
   try {
-    const { name, phone, location, address, footerColor } = req.body;
-    const newClient = new Client({ name, phone, address, location, footerColor });
+    const { name, phone, location, footerColor } = req.body;
+    const newClient = new Client({ name, phone, location, footerColor });
     const savedClient = await newClient.save();
     res.status(201).json(savedClient);
   } catch (err) {

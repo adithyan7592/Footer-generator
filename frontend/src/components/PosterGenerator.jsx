@@ -20,31 +20,35 @@ const PosterGenerator = ({ client }) => {
     img.src = userImage;
 
     img.onload = () => {
-      // 1. Set canvas to match uploaded image quality
+      //Set canvas to match uploaded image quality
       canvas.width = img.width;
       canvas.height = img.height;
 
-      // 2. Draw the User's Photo
+      // Draw the User's Photo
       ctx.drawImage(img, 0, 0);
 
-      // 3. Draw Footer Bar
+      //Draw Footer Bar
       const footerHeight = canvas.height * 0.15;
       ctx.fillStyle = client.footerColor || "rgba(0,0,0,0.8)"; 
       ctx.fillRect(0, canvas.height - footerHeight, canvas.width, footerHeight);
 
-      // 4. Add Client Details from MongoDB
+      //Add Client Details from MongoDB
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
       
-      // Line 1: Shop Name & Location
+      //Shop Name & Location
       ctx.font = `bold ${canvas.width * 0.04}px Arial`; 
       const line1 = `${client.name} | ${client.location}`;
       ctx.fillText(line1, canvas.width / 2, canvas.height - (footerHeight * 0.6));
 
-      // Line 2: Full Address & Phone
-      ctx.font = `${canvas.width * 0.028}px Arial`; 
-      const line2 = `${client.address} | Ph: ${client.phone}`;
-      ctx.fillText(line2, canvas.width / 2, canvas.height - (footerHeight * 0.25));
+      //Phone number
+ ctx.font = `bold ${canvas.width * 0.035}px Arial`; 
+      const line2Text = `Ph: ${client.phone}`;
+      ctx.fillText(
+        line2Text, 
+        canvas.width / 2, 
+        canvas.height - (footerHeight * 0.25)
+      );
     };
   }, [userImage, client]);
 
