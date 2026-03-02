@@ -7,13 +7,13 @@ const Client = require('./models/client');
 
 const app = express();
 
-//  MIDDLEWARE 
+//MIDDLEWARE 
 app.use(cors({
   origin: 'https://footer-generator-1.onrender.com',
 }));
 app.use(express.json());
 
-//  MONGODB CONNECTION 
+//MONGODB CONNECTION 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ Connected to MongoDB Atlas Cloud'))
   .catch(err => {

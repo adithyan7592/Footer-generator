@@ -8,12 +8,11 @@ function App() {
   const [selectedClient, setSelectedClient] = useState(null);
 
   useEffect(() => {
-    // Fetch all 40+ clients from your backend
     axios.get('https://footer-generator.onrender.com/api/clients')
       .then(res => {
         setClients(res.data);
         if (res.data.length > 0) {
-          setSelectedClient(res.data[0]); //Default to the first client
+          setSelectedClient(res.data[0]); 
         }
       })
       .catch(err => console.error("Error fetching clients:", err));
