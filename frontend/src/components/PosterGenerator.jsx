@@ -42,7 +42,7 @@ const PosterGenerator = ({ client }) => {
       ctx.fillText(line1, canvas.width / 2, canvas.height - (footerHeight * 0.6));
 
  //Phone number
- ctx.font = `bold ${canvas.width * 0.035}px Arial`; 
+ ctx.font = `bold ${canvas.width * 0.04}px Arial`; 
       const line2Text = `Ph: ${client.phone}`;
       ctx.fillText(
         line2Text, 

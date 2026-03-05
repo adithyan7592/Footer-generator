@@ -15,7 +15,7 @@ app.use(express.json());
 
 //MONGODB CONNECTION 
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('✅ Connected to MongoDB Atlas Cloud'))
+  .then(() => console.log('✅Connected to MongoDB Atlas Cloud'))
   .catch(err => {
     console.error('❌ Connection Error:', err.message);
     process.exit(1);
