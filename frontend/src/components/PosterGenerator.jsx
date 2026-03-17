@@ -13,7 +13,6 @@ const PosterGenerator = ({ client }) => {
 
   useEffect(() => {
     if (!userImage || !client) return;
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     const img = new Image();
@@ -42,7 +41,7 @@ const PosterGenerator = ({ client }) => {
       ctx.fillText(line1, canvas.width / 2, canvas.height - (footerHeight * 0.6));
 
  //Phone number
- ctx.font = `bold ${canvas.width * 0.04}px Arial`; 
+ ctx.font = `bold ${canvas.width * 0.37}px Arial`; 
       const line2Text = `Ph: ${client.phone}`;
       ctx.fillText(
         line2Text, 
