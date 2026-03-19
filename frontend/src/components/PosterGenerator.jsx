@@ -27,7 +27,7 @@ const PosterGenerator = ({ client }) => {
       ctx.drawImage(img, 0, 0);
 
       //Draw Footer Bar
-      const footerHeight = canvas.height * 0.16;
+      const footerHeight = canvas.height * 0.13;
       ctx.fillStyle = client.footerColor || "rgba(0,0,0,0.8)"; 
       ctx.fillRect(0, canvas.height - footerHeight, canvas.width, footerHeight);
 
