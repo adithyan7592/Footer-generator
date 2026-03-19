@@ -36,12 +36,12 @@ const PosterGenerator = ({ client }) => {
       ctx.textAlign = "center";
       
       //Shop Name & Location
-      ctx.font = `bold ${canvas.width * 0.04}px Arial`; 
+      ctx.font = `bold ${canvas.width * 0.03}px Arial`; 
       const line1 = `${client.name} | ${client.location}`;
       ctx.fillText(line1, canvas.width / 2, canvas.height - (footerHeight * 0.6));
 
  //Phone number
- ctx.font = `bold ${canvas.width * 0.031}px Arial`; 
+ ctx.font = `bold ${canvas.width * 0.028}px Arial`; 
       const line2Text = `Ph: ${client.phone}`;
       ctx.fillText(
         line2Text, 
